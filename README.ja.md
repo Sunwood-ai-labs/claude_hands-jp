@@ -29,7 +29,7 @@
 Claude Handsは、Manusの再現実装をClaude DesktopとMCPを活用して再現したプロジェクトです。
 
 ## 🆕 更新情報
-- 2025-04-19: Docker関連を整備し、Windows環境で動作するように対応。
+- 2025.4.19 Docker関連を整備し、Windows環境で動作するように対応。
 - 2025.3.29 Browser operation supported.   
 - 2025.3.29 ChatGPT Desktop supported. chatgpt_mcp_agent.config.yaml
 
