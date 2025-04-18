@@ -1,0 +1,47 @@
+{
+  "name": "tavily-mcp",
+  "version": "0.1.4",
+  "description": "MCP server for advanced web search using Tavily",
+  "type": "module",
+  "bin": {
+    "tavily-mcp": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "keywords": [
+    "tavily-mcp",
+    "tavily",
+    "mcp",
+    "model-context-protocol",
+    "websearch",
+    "claude",
+    "claude-desktop",
+    "search-api",
+    "web-search",
+    "ai-search",
+    "anthropic",
+    "real-time-search",
+    "search-tools",
+    "tavily-api",
+    "tavily-search",
+    "tavily-extract",
+    "web-extraction",
+    "data-extraction",
+    "search-integration"
+  ],
+  "author": "Tavily",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "dotenv": "^16.4.5",
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}

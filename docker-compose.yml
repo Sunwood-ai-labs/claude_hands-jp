@@ -1,16 +1,22 @@
 services:
   claudecode:
-    image: r488it/claude_code
+    build:
+      context: .
+      dockerfile: Dockerfile_claude_code_sse
+    container_name: claudecode-stdio
     user: root  
     volumes:
-      - /path/to/your/workspace:/workspace
+      - ${WORKSPACE_PATH:-./workspace}:/workspace
     ports:
-      - "9999:9999"
+      - "${HOST_PORT:-9999}:${CONTAINER_PORT:-9999}"
     restart: unless-stopped
     stdin_open: true 
 
   tavily:
-    image: r488it/tavily
+    build:
+      context: .
+      dockerfile: Dockerfile_tavily
+    container_name: tavily-mcp
     restart: unless-stopped
     stdin_open: true 
     env_file:
