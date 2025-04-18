@@ -1,5 +1,3 @@
-# Claude Hands (日本語版)
-
 <p align="center">
   <img src="assets/logo.png" width="200"/>
   <img src="assets/logo2.png" width="200"/>
@@ -11,6 +9,8 @@
 </p>
 
 <div align="center">
+
+# Claude Hands (日本語版)
 
 [![GitHub stars](https://img.shields.io/github/stars/r488it/claude_hands?style=social)](https://github.com/r488it/claude_hands/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
