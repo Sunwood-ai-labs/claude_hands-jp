@@ -2,7 +2,7 @@ services:
   claudecode:
     build:
       context: .
-      dockerfile: Dockerfile_claude_code_sse
+      dockerfile: claudecode/Dockerfile
     container_name: claudecode-stdio
     user: root  
     volumes:
@@ -15,7 +15,7 @@ services:
   tavily:
     build:
       context: .
-      dockerfile: Dockerfile_tavily
+      dockerfile: tavily-mcp/Dockerfile
     container_name: tavily-mcp
     restart: unless-stopped
     stdin_open: true 
