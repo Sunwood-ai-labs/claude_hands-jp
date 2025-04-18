@@ -1,23 +1,30 @@
-# Claude Hands
+<p align="center">
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/ドキュメント-日本語-white.svg" alt="JA doc"/></a>
+  <a href="README.md"><img src="https://img.shields.io/badge/english-document-white.svg" alt="EN doc"></a>
+</p>
 
 <p align="center">
   <img src="assets/logo.png" width="200"/>
   <img src="assets/logo2.png" width="200"/>
 </p>
 
-English | [日本語](README.ja.md)
+<h1 align="center">Claude Hands</h1>
+
+<div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/r488it/claude_hands?style=social)](https://github.com/r488it/claude_hands/stargazers)
-&ensp;
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) &ensp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+</div>
 
 Claude Hands is a project that recreates Manus implementation using Claude Desktop and MCP (Model Control Protocol).
 
 
-## update
-2025.3.29 Browser operation supported.   
-2025.3.29 ChatGPT Desktop supported. chatgpt_mcp_agent.config.yaml
+## Update
+
+- 2025.4.19 Refined Docker setup to support Windows environment.
+- 2025.3.29 Browser operation supported.   
+- 2025.3.29 ChatGPT Desktop supported. chatgpt_mcp_agent.config.yaml
 
 ## Recommended Model
 - Claude 3.7 Sonnet
@@ -27,7 +34,7 @@ Claude Hands is a project that recreates Manus implementation using Claude Deskt
 
 https://github.com/user-attachments/assets/615c8973-c117-4012-9111-e44d594d6869
 
-## Features
+## 🚀 Features
 
 - Pre-configured Docker environment for Claude Code development
 - Enhanced information retrieval with Tavily search integration
@@ -40,7 +47,7 @@ https://github.com/user-attachments/assets/615c8973-c117-4012-9111-e44d594d6869
 - Claude Desktop application
 - Tavily API key
 
-## Setup Instructions
+## 🛠 Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -105,6 +112,11 @@ This command will:
 <div align="center" style="display: flex; gap: 20px;">
     <img src="assets/03_set_knowledge.png" alt="Add knowledge" width="300" />
 </div>
+
+## 📚 Additional Documentation
+- [Knowledge Base](knowledge.md)
+- [Prompt (EN)](prompt.md)
+- [Prompt (JA)](prompt.ja.md)
 
 ## Star History
 
