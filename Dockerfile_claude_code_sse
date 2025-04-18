@@ -80,10 +80,4 @@ WORKDIR /workspace
 # ポートの公開（必要に応じて変更）
 EXPOSE 8000
 
-# Create the entrypoint script in a separate RUN command
-RUN echo '#!/bin/bash' > /entrypoint.sh && \
-    echo 'mcp-proxy --sse-host=0.0.0.0 --sse-port=8000 claude mcp serve &' >> /entrypoint.sh && \
-    chmod +x /entrypoint.sh
-
-# Set the entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["claude", "mcp", "serve"]
