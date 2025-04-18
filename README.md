@@ -22,7 +22,7 @@ Claude Hands is a project that recreates Manus implementation using Claude Deskt
 
 ## Update
 
-- 2025-04-19: Refined Docker setup to support Windows environment.
+- 2025.4.19 Refined Docker setup to support Windows environment.
 - 2025.3.29 Browser operation supported.   
 - 2025.3.29 ChatGPT Desktop supported. chatgpt_mcp_agent.config.yaml
 
