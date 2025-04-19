@@ -108,17 +108,17 @@ This command will:
 
 1. Create a new project
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/01_make_project.png" alt="Create project" width="300" />
+    <img src="assets/01_make_project.png" alt="Create project" width="600" />
 </div>
 
 2. Set up your prompt
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/02_set_prompt.png" alt="Set prompt" width="300" />
+    <img src="assets/02_set_prompt.png" alt="Set prompt" width="600" />
 </div>
 
 3. Add knowledge template (optional)
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/03_set_knowledge.png" alt="Add knowledge" width="300" />
+    <img src="assets/03_set_knowledge.png" alt="Add knowledge" width="600" />
 </div>
 
 ## 📚 Additional Documentation
