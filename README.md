@@ -15,6 +15,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/r488it/claude_hands?style=social)](https://github.com/r488it/claude_hands/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<!-- Tech Stack Badges -->
+<img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker" />
+<img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white" alt="Node.js" />
+<img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter" />
+<img src="https://img.shields.io/badge/MCP-222?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNjY2Ii8+PHRleHQgeD0iNSIgeT0iMTUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IndoaXRlIj5NQ1A8L3RleHQ+PC9zdmc+" alt="MCP" />
+
 </div>
 
 Claude Hands is a project that recreates Manus implementation using Claude Desktop and MCP (Model Control Protocol).
@@ -100,17 +108,17 @@ This command will:
 
 1. Create a new project
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/01_make_project.png" alt="Create project" width="300" />
+    <img src="assets/01_make_project.png" alt="Create project" width="600" />
 </div>
 
 2. Set up your prompt
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/02_set_prompt.png" alt="Set prompt" width="300" />
+    <img src="assets/02_set_prompt.png" alt="Set prompt" width="600" />
 </div>
 
 3. Add knowledge template (optional)
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/03_set_knowledge.png" alt="Add knowledge" width="300" />
+    <img src="assets/03_set_knowledge.png" alt="Add knowledge" width="600" />
 </div>
 
 ## 📚 Additional Documentation

@@ -1,0 +1,74 @@
+name: Build and Deploy Docker Images
+
+on:
+  push:
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read      # コード取得
+      packages: write     # GHCR へ push
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set lowercase repo variable
+        run: echo "REPO_LOWER=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+      
+      - uses: docker/setup-qemu-action@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push claudecode
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: claudecode/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-claudecode:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-claudecode:${{ github.sha }}
+
+      - name: Build & Push tavily-mcp
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: tavily-mcp/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-tavily-mcp:latest
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-tavily-mcp:${{ github.sha }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+    steps:
+      - name: Remote Deploy via SSH
+        if: ${{ env.SSH_HOST != '' }}   # SSH 情報があれば実行
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          key: ${{ env.SSH_PRIVATE_KEY }}
+          port: ${{ env.SSH_PORT || '22' }}
+          script: |
+            cd /opt/claude_hands    # ★サーバ側の配置パスに合わせて調整
+            git pull
+            docker-compose pull
+            docker-compose up -d --remove-orphans
