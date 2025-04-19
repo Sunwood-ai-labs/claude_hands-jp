@@ -52,9 +52,9 @@ jobs:
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
-    if: ${{ secrets.SSH_HOST != '' }}   # SSH 情報があれば実行
     steps:
       - name: Remote Deploy via SSH
+        if: ${{ secrets.SSH_HOST != '' }}   # SSH 情報があれば実行
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
