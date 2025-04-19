@@ -39,6 +39,7 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-claudecode:latest
             ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-claudecode:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-claudecode:${{ github.ref_name }}
 
       - name: Build & Push tavily-mcp
         uses: docker/build-push-action@v5
@@ -49,6 +50,7 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-tavily-mcp:latest
             ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-tavily-mcp:${{ github.sha }}
+            ${{ env.REGISTRY }}/${{ env.REPO_LOWER }}-tavily-mcp:${{ github.ref_name }}
 
   deploy:
     needs: build-and-push
