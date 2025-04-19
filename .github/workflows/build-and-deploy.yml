@@ -1,0 +1,68 @@
+name: Build and Deploy Docker Images
+
+on:
+  push:
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME_CLAUDE: ${{ github.repository }}-claudecode
+  IMAGE_NAME_TAVILY: ${{ github.repository }}-tavily-mcp
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read      # コード取得
+      packages: write     # GHCR へ push
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-qemu-action@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Push claudecode
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: claudecode/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_CLAUDE }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_CLAUDE }}:${{ github.sha }}
+
+      - name: Build & Push tavily-mcp
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: tavily-mcp/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_TAVILY }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_TAVILY }}:${{ github.sha }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    if: ${{ secrets.SSH_HOST != '' }}   # SSH 情報があれば実行
+    steps:
+      - name: Remote Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || '22' }}
+          script: |
+            cd /opt/claude_hands    # ★サーバ側の配置パスに合わせて調整
+            git pull
+            docker-compose pull
+            docker-compose up -d --remove-orphans
