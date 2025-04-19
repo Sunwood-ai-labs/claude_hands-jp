@@ -6,8 +6,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME_CLAUDE: ${{ github.repository }}-claudecode
-  IMAGE_NAME_TAVILY: ${{ github.repository }}-tavily-mcp
+  IMAGE_NAME_CLAUDE: ${{ format('{0}-claudecode', toLower(github.repository)) }}
+  IMAGE_NAME_TAVILY: ${{ format('{0}-tavily-mcp', toLower(github.repository)) }}
 
 jobs:
   build-and-push:
