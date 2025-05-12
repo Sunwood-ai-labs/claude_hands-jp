@@ -12,3 +12,12 @@ services:
     restart: unless-stopped
     stdin_open: true 
 
+  tavily:
+    build:
+      context: .
+      dockerfile: tavily-mcp/Dockerfile
+    container_name: tavily-mcp
+    restart: unless-stopped
+    stdin_open: true 
+    env_file:
+      - .env
