@@ -1,0 +1,23 @@
+services:
+  claudecode:
+    build:
+      context: .
+      dockerfile: claudecode/Dockerfile
+    container_name: claudecode-stdio
+    user: root  
+    volumes:
+      - ${WORKSPACE_PATH:-./workspace}:/workspace
+    ports:
+      - "${HOST_PORT:-9999}:${CONTAINER_PORT:-9999}"
+    restart: unless-stopped
+    stdin_open: true 
+
+  tavily:
+    build:
+      context: .
+      dockerfile: tavily-mcp/Dockerfile
+    container_name: tavily-mcp
+    restart: unless-stopped
+    stdin_open: true 
+    env_file:
+      - .env
