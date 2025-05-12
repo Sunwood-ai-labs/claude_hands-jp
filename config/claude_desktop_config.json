@@ -4,7 +4,7 @@
       "command": "docker",
       "args": [
         "attach",
-        "claude_hands-claudecode-1"
+        "claudecode-stdio"
       ]
     },
     "tavily-mcp": {
